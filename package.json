@@ -1,0 +1,25 @@
+{
+  "name": "b1j2754-scratchtext",
+  "displayName": "ScratchText",
+  "description": "Provides syntax highlighting and language support for ScratchText files (.scrtxt), a programming language for Scratch projects",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.95.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "scratchtext",
+      "aliases": ["ScratchText", "scratchtext"],
+      "extensions": [".scratchtext",".scrtxt"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "scratchtext",
+      "scopeName": "source.scratchtext",
+      "path": "./syntaxes/scratchtext.tmLanguage.json"
+    }]
+  }
+}
