@@ -1,32 +1,129 @@
 {
-	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-	"name": "ScratchText",
-	"patterns": [
-		{
-			"include": "#keywords"
-		},
-		{
-			"include": "#strings"
-		}
-	],
-	"repository": {
-		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.scratchtext",
-				"match": "\\b(if|while|for|return)\\b"
-			}]
-		},
-		"strings": {
-			"name": "string.quoted.double.scratchtext",
-			"begin": "\"",
-			"end": "\"",
-			"patterns": [
-				{
-					"name": "constant.character.escape.scratchtext",
-					"match": "\\\\."
-				}
-			]
-		}
-	},
-	"scopeName": "source.scratchtext"
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "ScratchText",
+    "patterns": [
+        {
+            "include": "#keywords"
+        },
+        {
+            "include": "#strings"
+        },
+        {
+            "include": "#commands"
+        },
+        {
+            "name": "constant.numeric.scratchtext",
+            "match": "(?<!-)\\b(\\d*\\.\\d+|\\d+)\\b"
+        },
+        {
+            "name": "comment.line.scratchtext",
+            "match": "^#.*$"
+        },
+        {
+            "name": "variable.scratchtext",
+            "match": "\\$(.*?)(?=[,)])"
+        },
+        {
+            "name": "list.scratchtext",
+            "match": "\\@(.*?)(?=[,)])"
+        }
+    ],
+    "repository": {
+        "strings": {
+            "name": "string.quoted.double.scratchtext",
+            "begin": "\"",
+            "end": "\"",
+            "patterns": [
+                {
+                    "name": "constant.character.escape.scratchtext",
+                    "match": "\\\\."
+                }
+            ]
+        },
+        "commands": {
+            "patterns": [
+                {
+                    "name": "support.function.motion.stack.scratchtext",
+                    "match": "(?i)\\b(move|turn|gotoXY|goto|glideXY|glideto|point|pointTo|changeX|setX|changeY|setY|edgeBounce|rotationStyle)\\b"
+                },
+                {
+                    "name": "support.function.motion.reporter.scratchtext",
+                    "match": "(?i)\\b(xPos|yPos|direction)\\b"
+                },
+                {
+                    "name": "support.function.looks.stack.scratchtext",
+                    "match": "(?i)\\b(timeSay|say|timeThink|think|switchCostume|nextCostume|switchBackdrop|nextBackdrop|changeSize|setSize|changeFx|setFx|clearFx|show|hide|goToLayer|changeLayer)\\b"
+                },
+                {
+                    "name": "support.function.looks.reporter.scratchtext",
+                    "match": "(?i)\\b(getCostume|getBackdrop|size)\\b"
+                },
+                {
+                    "name": "support.function.sound.stack.scratchtext",
+                    "match": "(?i)\\b(play|playWait|stopSounds|changeSoundFx|setSoundFx|clearSoundFx|changeVolume|setVolume)\\b"
+                },
+                {
+                    "name": "support.function.sound.reporter.scratchtext",
+                    "match": "(?i)\\b(volume)\\b"
+                },
+                {
+                    "name": "support.function.events.hat.scratchtext",
+                    "match": "(?i)\\b(whenFlag|whenKey|whenSpriteClicked|whenBackdropSwitch|whenGreater|whenBroadcast)\\b"
+                },
+                {
+                    "name": "support.function.events.stack.scratchtext",
+                    "match": "(?i)\\b(sendBroadcast|sendBroadcastWait)\\b"
+                },
+                {
+                    "name": "support.function.control.stack.scratchtext",
+                    "match": "(?i)\\b(wait|waitUntil|createClone|clearCounter|incrCounter)\\b"
+                },
+                {
+                    "name": "support.function.control.c.scratchtext",
+                    "match": "(?i)\\b(repeat|forever|if|ifElse|repeatUntil|while|for|allAtOnce)\\b"
+                },
+                {
+                    "name": "support.function.control.cap.scratchtext",
+                    "match": "(?i)\\b(stop|deleteClone)\\b"
+                },
+                {
+                    "name": "support.function.control.hat.scratchtext",
+                    "match": "(?i)\\b(whenCloneStart)\\b"
+                },
+                {
+                    "name": "support.function.control.reporter.scratchtext",
+                    "match": "(?i)\\b(counter)\\b"
+                },
+                {
+                    "name": "support.function.sensing.reporter.scratchtext",
+                    "match": "(?i)\\b(touching|touchingClr|clrTouchingClr|distanceto|answer|keypressed|mouse|mouseX|mouseY|loudness|timer|getAttribute|current|dayssince2000|username)\\b"
+                },
+                {
+                    "name": "support.function.sensing.stack.scratchtext",
+                    "match": "(?i)\\b(ask|setdragmode|resetTime)\\b"
+                },
+                {
+                    "name": "support.function.operators.reporter.scratchtext",
+                    "match": "(?i)\\b(add|subtract|multiply|divide|random|lt|equals|gt|and|or|not|join|getLetter|length|contains|mod|round|mathop)\\b"
+                },
+                {
+                    "name": "support.function.variables.stack.scratchtext",
+                    "match": "(?i)\\b(setvar|changevar|showvar|hidevar)\\b"
+                },
+                {
+                    "name": "support.function.lists.stack.scratchtext",
+                    "match": "(?i)\\b(listAdd|listDelete|listDeleteAll|listInsert|listReplace|listShow|listHide)\\b"
+                },
+                {
+                    "name": "support.function.lists.reporter.scratchtext",
+                    "match": "(?i)\\b(getItem|getItemNum|listLength|listContains)\\b"
+                },
+                {
+                    "name": "support.function.pen.stack.scratchtext",
+                    "match": "(?i)\\b(penClear|stamp|penDown|penUp|changePen|setPen|changePenSize|setPenSize)\\b"
+                }
+            ]
+        }
+    },
+    "scopeName": "source.scratchtext"
 }

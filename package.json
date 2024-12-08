@@ -10,6 +10,11 @@
     "Programming Languages"
   ],
   "contributes": {
+    "themes": [{
+        "theme": "ScratchText-dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/scratchtext-dark.json"
+      }],
     "languages": [{
       "id": "scratchtext",
       "aliases": ["ScratchText", "scratchtext"],
