@@ -66,28 +66,28 @@ with open("commands.txt", "r") as file:
                 
                 # Add the broader scope for the category and type
                 theme["tokenColors"].append({
-                    "scope": f"support.function.{current_category}.{command_type}.scratchtext",
+                    "scope": f"scrblock.{current_category}.{command_type}.scratchtext",
                     "settings": {"foreground": f"#{adjusted_color}"}
                 })
     
     theme["tokenColors"].append({
-        "scope": "string.quoted.double.scratchtext",
+        "scope": "input.stringdoublequotes.scratchtext",
         "settings": {"foreground": "#d60b37"}
     })
     theme["tokenColors"].append({
-        "scope": "constant.numeric.scratchtext",
+        "scope": "input.num.scratchtext",
         "settings": {"foreground": "#d60b37"}
     })
     theme["tokenColors"].append({
-        "scope": "comment.line.scratchtext",
+        "scope": "block.comment.scratchtext",
         "settings": {"foreground": "#E4DB8C"}
     })
     theme["tokenColors"].append({
-        "scope": "variable.scratchtext",
+        "scope": "input.variable.scratchtext",
         "settings": {"foreground": "#FF8C1A"}
     })
     theme["tokenColors"].append({
-        "scope": "list.scratchtext",
+        "scope": "input.list.scratchtext",
         "settings": {"foreground": "#FF661A"}
     })
 

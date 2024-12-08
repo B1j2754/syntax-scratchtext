@@ -7,9 +7,6 @@ tmlanguage_template = {
     "name": "ScratchText",
     "patterns": [
         {
-            "include": "#keywords"
-        },
-        {
             "include": "#strings"
         },
         {
@@ -18,15 +15,10 @@ tmlanguage_template = {
     ],
     "repository": {
         "strings": {
-            "name": "string.quoted.double.scratchtext",
+            "name": "input.stringdoublequotes.scratchtext",
             "begin": "\"",
             "end": "\"",
-            "patterns": [
-                {
-                    "name": "constant.character.escape.scratchtext",
-                    "match": "\\\\."
-                }
-            ]
+            "patterns": []
         },
         "commands": {
             "patterns": []
@@ -87,11 +79,14 @@ with open("commands.txt", "r") as file:
             base_color = category_colors.get(current_category, "FFFFFF")
             adjusted_color = adjust_brightness(base_color, block_types.get(command_type, 1.0))
 
+            # Generate the command pattern
+            cmd_key = f"scrblock.{current_category}.{command_type}.scratchtext"
+
             # Add to dictionary
-            if not f"support.function.{current_category}.{command_type}.scratchtext" in all_type_combos:
-                all_type_combos[f"support.function.{current_category}.{command_type}.scratchtext"] = line.split(':')[0]
+            if not cmd_key in all_type_combos:
+                all_type_combos[cmd_key] = line.split(':')[0]
             else:
-                all_type_combos[f"support.function.{current_category}.{command_type}.scratchtext"] += "|" + line.split(':')[0]
+                all_type_combos[cmd_key] += "|" + line.split(':')[0]
 
     # Add all matches to the json structure
     for key in all_type_combos.keys():
@@ -103,25 +98,25 @@ with open("commands.txt", "r") as file:
 
     # Number matching
     tmlanguage_template["patterns"].append({
-      "name": "constant.numeric.scratchtext",
+      "name": "input.num.scratchtext",
       "match": "(?<!-)\\b(\\d*\\.\\d+|\\d+)\\b"
     })
 
     # Comment line matching
     tmlanguage_template["patterns"].append({
-      "name": "comment.line.scratchtext",
+      "name": "block.comment.scratchtext",
       "match": "^#.*$"
     })
 
     # Variable matching
     tmlanguage_template["patterns"].append({
-      "name": "variable.scratchtext",
+      "name": "input.variable.scratchtext",
       "match": r"\$(.*?)(?=[,)])"
     })
 
     # List matching
     tmlanguage_template["patterns"].append({
-      "name": "list.scratchtext",
+      "name": "input.list.scratchtext",
       "match": r"\@(.*?)(?=[,)])"
     })
 
