@@ -98,26 +98,26 @@ with open("commands.txt", "r") as file:
 
     # Number matching
     tmlanguage_template["patterns"].append({
-      "name": "input.num.scratchtext",
-      "match": "(?<!-)\\b(\\d*\\.\\d+|\\d+)\\b"
+        "name": "input.num.scratchtext",
+        "match": "(?<!-)\\b(\\d*\\.\\d+|\\d+)\\b"
     })
 
     # Comment line matching
     tmlanguage_template["patterns"].append({
-      "name": "block.comment.scratchtext",
-      "match": "^#.*$"
+        "name": "block.comment.scratchtext",
+        "match": "#(?=(?:[^\"']*(?:\"|'))*[^\"']*$).*"
     })
 
     # Variable matching
     tmlanguage_template["patterns"].append({
-      "name": "input.variable.scratchtext",
-      "match": r"\$(.*?)(?=[,)])"
+        "name": "input.variable.scratchtext",
+        "match": r"\$(.*?)(?=[,)])"
     })
 
     # List matching
     tmlanguage_template["patterns"].append({
-      "name": "input.list.scratchtext",
-      "match": r"\@(.*?)(?=[,)])"
+        "name": "input.list.scratchtext",
+        "match": r"\@(.*?)(?=[,)])"
     })
 
 # Save the generated .tmlanguage.json file

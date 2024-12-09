@@ -14,7 +14,7 @@
         },
         {
             "name": "block.comment.scratchtext",
-            "match": "^#.*$"
+            "match": "#(?=(?:[^\"']*(?:\"|'))*[^\"']*$).*"
         },
         {
             "name": "input.variable.scratchtext",
