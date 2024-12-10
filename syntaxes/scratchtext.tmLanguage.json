@@ -112,7 +112,7 @@
                 },
                 {
                     "name": "scrblock.pen.stack.scratchtext",
-                    "match": "(?i)\\b(penClear|stamp|penDown|penUp|changePen|setPen|changePenSize|setPenSize)\\b"
+                    "match": "(?i)\\b(penClear|stamp|penDown|penUp|hexPen|changePen|setPen|changePenSize|setPenSize)\\b"
                 }
             ]
         }
