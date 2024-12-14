@@ -10,7 +10,7 @@
         },
         {
             "name": "input.num.scratchtext",
-            "match": "(?<!-)\\b(\\d*\\.\\d+|\\d+)\\b"
+            "match": "(-?(\\d+(\\.\\d*)?|\\.\\d+))"
         },
         {
             "name": "block.comment.scratchtext",
@@ -23,6 +23,10 @@
         {
             "name": "input.list.scratchtext",
             "match": "\\@(.*?)(?=[,)])"
+        },
+        {
+            "name": "scrblock.control.c.scratchtext",
+            "match": "(?<!\\\")\\belse\\b(?!\\\")"
         }
     ],
     "repository": {
@@ -60,7 +64,7 @@
                 },
                 {
                     "name": "scrblock.events.hat.scratchtext",
-                    "match": "(?i)\\b(whenFlag|whenKey|whenSpriteClicked|whenBackdropSwitch|whenGreater|whenBroadcast)\\b"
+                    "match": "(?i)\\b(whenFlag|whenKey|whenSpriteClicked|whenBackdropSwitch|whenGreater|whenBroadcast|whenTouching)\\b"
                 },
                 {
                     "name": "scrblock.events.stack.scratchtext",

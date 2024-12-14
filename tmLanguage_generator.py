@@ -99,7 +99,7 @@ with open("commands.txt", "r") as file:
     # Number matching
     tmlanguage_template["patterns"].append({
         "name": "input.num.scratchtext",
-        "match": "(?<!-)\\b(\\d*\\.\\d+|\\d+)\\b"
+        "match": r"(-?(\d+(\.\d*)?|\.\d+))"
     })
 
     # Comment line matching
@@ -118,6 +118,12 @@ with open("commands.txt", "r") as file:
     tmlanguage_template["patterns"].append({
         "name": "input.list.scratchtext",
         "match": r"\@(.*?)(?=[,)])"
+    })
+
+    # Else matching
+    tmlanguage_template["patterns"].append({
+        "name": "scrblock.control.c.scratchtext",
+        "match": r"(?<!\")\belse\b(?!\")"
     })
 
 # Save the generated .tmlanguage.json file
